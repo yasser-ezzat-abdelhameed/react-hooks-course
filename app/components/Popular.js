@@ -96,15 +96,13 @@ export default function Popular() {
     }
   }, [selectedLanguage]);
 
-  const updateLanguage = (selectedLanguage) => setSelectedLanguage(selectedLanguage);
-
   const isLoading = () => {
     return !repos[selectedLanguage] && error === null;
   };
 
   return (
     <React.Fragment>
-      <LangaugesNav selected={selectedLanguage} onUpdateLanguage={updateLanguage} />
+      <LangaugesNav selected={selectedLanguage} onUpdateLanguage={setSelectedLanguage} />
 
       {isLoading() && <Loading text="Fetching Repos" />}
 
